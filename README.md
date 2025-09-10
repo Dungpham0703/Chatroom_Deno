@@ -52,10 +52,10 @@ Follow these steps to get the application up and running on your local machine.
     ```
     > This usually runs `deno run --allow-net --allow-read server.ts`
 
-The server will start on:
-```
-http://localhost:3000
-```
+    The server will start on:
+    ```
+    http://localhost:3000
+    ```
 
 ### 2. Frontend
 
