@@ -1,9 +1,7 @@
-// api/ws.ts
 export const runtime = 'edge';
 
 type Client = { id: string; name: string; room: string; socket: WebSocket };
 
-// Simple in-memory room → Set<WebSocket> (per-instance)
 const rooms = new Map<string, Set<WebSocket>>();
 
 function broadcast(room: string, payload: unknown) {
@@ -20,11 +18,9 @@ export async function GET(req: Request) {
     return new Response('Expected websocket', { status: 400 });
   }
 
-  // Create standard-compliant WS pair
   const { 0: client, 1: server } = new (globalThis as any).WebSocketPair() as [WebSocket, WebSocket];
   server.accept();
 
-  // Per-connection state
   const id = Math.random().toString(36).slice(2, 10);
   let name = `user-${id}`;
   let room = '1';
@@ -56,7 +52,6 @@ export async function GET(req: Request) {
         return;
       }
     } catch {
-      // ignore invalid message
     }
   });
 

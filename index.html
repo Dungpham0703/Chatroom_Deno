@@ -55,11 +55,6 @@
     </main>
 
     <script type="module">
-      /**
-       * Types (JSDoc):
-       * @typedef {{type:'system', text:string}} SystemMsg
-       * @typedef {{type:'chat', name:string, text:string}} ChatMsg
-       */
 
       const logEl  = /** @type {HTMLDivElement}   */(document.getElementById('log'));
       const nameEl = /** @type {HTMLInputElement} */(document.getElementById('name'));
@@ -68,10 +63,8 @@
       const textEl = /** @type {HTMLInputElement} */(document.getElementById('text'));
       const sendBtn= /** @type {HTMLButtonElement}*/(document.getElementById('send'));
 
-      /** Return ws://... or wss://... to /api/ws */
       const WS_URL = location.origin.replace(/^http/, 'ws') + '/api/ws';
 
-      /** @type {WebSocket | null} */
       let ws = null;
       let joined = false;
 
